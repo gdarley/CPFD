@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" ng-app="cpfd">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
@@ -14,7 +14,7 @@
 		<![endif]-->
         <link rel="stylesheet" type="text/css" href="Styles/styles.css">
     </head>
-    <body>      
+    <body ng-controller="TabController as tab">      
 
         <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
               <div class="container-fluid">
@@ -33,12 +33,12 @@
                 <div class="collapse navbar-collapse" id="menu-navbar-collapse-1">
 
                   <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#Home">Home</a></li>
-                    <li><a href="#formacao">Formação</a></li>
-                    <li><a href="#atuacao">Linhas de Atuação</a></li>
-                    <li><a href="#convenios">Convênios</a></li>
-                    <li><a href="#atendimento">Atendimento</a></li>
-                    <li><a href="#contato">Contato</a></li>
+                    <li ng-class="{ active:tab.isSet(1) }"><a href ng-click="tab.setTab(1)">Home</a></li>
+                    <li ng-class="{ active:tab.isSet(2) }"><a href ng-click="tab.setTab(2)">Formação</a></li>
+                    <li ng-class="{ active:tab.isSet(3) }"><a href ng-click="tab.setTab(3)">Linhas de Atuação</a></li>
+                    <li ng-class="{ active:tab.isSet(4) }"><a href ng-click="tab.setTab(4)">Convênios</a></li>
+                    <li ng-class="{ active:tab.isSet(5) }"><a href ng-click="tab.setTab(5)">Atendimento</a></li>
+                    <li ng-class="{ active:tab.isSet(6) }"><a href ng-click="tab.setTab(6)">Contato</a></li>
                     <!--<li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
                       <ul class="dropdown-menu" role="menu">
@@ -53,8 +53,9 @@
                 </div><!-- /.navbar-collapse -->
               </div><!-- /.container-fluid -->
             </nav>
-
-            <div class="jumbotron" id="Home">
+            <!-- Home-->
+            <div class="jumbotron" id="Home" ng-show="tab.isSet(1)">
+                
                 <div class="container">
                     <div class="page-header home-top-content">
                         <img src="Images/logo.svg" alt="..." class="img-rounded">
@@ -63,54 +64,89 @@
 
 
                     </div>
-
-                 </div>
-
-           <div class="row" >
-               <div class="col-md-offset-3">
-                   <div class="col-sm-6 col-md-4" >
-                        <div class="thumbnail">                            
-                            <div class="caption">
-                                <h4 class="h-centered">Location 1</h4>
-                                <p>Address: Stret name, number 123</p>
-                                  <p>Phone: (11) 2222-22-22</p>
-                                  <p>Phone: (33) 3333-33-33</p>
-                                <p>
-                                    <a href="#" class="btn btn-primary" role="button">View Map</a>
-                                </p>
+                
+                </div>
+                <div class="row" >
+                   <div class="col-md-offset-3">
+                       <div class="col-sm-6 col-md-4" >
+                            <div class="thumbnail">                            
+                                <div class="caption">
+                                    <h4 class="h-centered">Location 1</h4>
+                                    <p>Address: Stret name, number 123</p>
+                                      <p>Phone: (11) 2222-22-22</p>
+                                      <p>Phone: (33) 3333-33-33</p>
+                                    <p>
+                                        <a href="#" class="btn btn-primary" role="button">View Map</a>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     
                     
-                   <div class="col-sm-6 col-md-4 " >
-                        <div class="thumbnail">                            
-                            <div class="caption">
-                                <h4 class="h-centered">Location 2</h4>
-                                <p>Address: Stret name, number 123</p>
-                                  <p>Phone: (11) 2222-22-22</p>
-                                  <p>Phone: (33) 3333-33-33</p>
-                                <p>
-                                <p>
-                                    <a href="#" class="btn btn-primary" role="button">View Map</a>
-                                </p>
+                       <div class="col-sm-6 col-md-4 " >
+                            <div class="thumbnail">                            
+                                <div class="caption">
+                                    <h4 class="h-centered">Location 2</h4>
+                                    <p>Address: Stret name, number 123</p>
+                                      <p>Phone: (11) 2222-22-22</p>
+                                      <p>Phone: (33) 3333-33-33</p>
+                                    <p>
+                                    <p>
+                                        <a href="#" class="btn btn-primary" role="button">View Map</a>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-               </div> 
-           </div><!--row-->
+                   </div> 
+               </div><!--row -->
+                
+               
+                
+                
+                
+                
+            </div><!-- end Home -->
 
-                
-                
-                
-                
-            </div>
+            <!-- Formacao -->
+            <div class="jumbotron" id="Formacao" ng-show="tab.isSet(2)">
+                <div class="container">
+                    ... formacao ...
+                </div>
+            </div> <!-- end Formacao -->
  
+            <!-- Atuacao  -->
+            <div class="jumbotron" id="Atuacao" ng-show="tab.isSet(3)">
+                <div class="container">
+                    ... atuacao ...
+                </div>
+            </div> <!-- end Atuaco -->
+
+            <!-- Convenios  -->
+            <div class="jumbotron" id="Convenios" ng-show="tab.isSet(4)">
+                <div class="container">
+                    ... convenios ...
+                </div>
+            </div> <!-- end Convenios -->
+
+            <!-- Atemdimento  -->
+            <div class="jumbotron" id="Atendimento" ng-show="tab.isSet(5)">
+                <div class="container">
+                    ... Atendimento ...
+                </div>
+            </div> <!-- end Atendimento -->
+
+            <!-- Contato  -->
+            <div class="jumbotron" id="Contato" ng-show="tab.isSet(6)">
+                <div class="container">
+                    ... Contato ...
+                </div>
+            </div> <!-- end Contato -->
 
         <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="Scripts/angular.js"></script>
-		<script type="text/javascript" src="Scripts/app.js"></script>
+		<script type="text/javascript" src="Styles/bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="Scripts/app.js"></script>
         
-        <script type="text/javascript" src="Styles/bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+        
     </body>
 </html>
