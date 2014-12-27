@@ -1,4 +1,5 @@
 body {
+    background-color: #EEE
 }
 
 
@@ -72,15 +73,45 @@ body {
 
 
 /* maps */
-      #map1-canvas {
-        width: 500px;
-        height: 400px;
-        background-color: #DCC;
 
-      }
-      #map2-canvas {
-        width: 400px;
-        height: 500px;
-        background-color: #CCD;
+ html, body, #mapPoa-canvas  {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+ html, body, #mapPel-canvas  {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+            html, body, #map-canvas  {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+#mapPoa-canvas {
+  min-width: 500px;
+  min-height: 400px;
+  width:100%;
+  height:100%;
+  background-color: #CCD;
+  
+}
+#mapPel-canvas {
+  min-width: 500px;
+  min-height: 400px;
+  width:100%;
+  height:100%;.
+  background-color: #CCD;
+  
+}
 
-      }
+.mapContainer{
+    margin:  0px auto;
+    text-align: center;
+    position: 
+}
+
+.locationFooter{
+    text-align: right;       
+}

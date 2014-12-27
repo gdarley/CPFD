@@ -69,65 +69,96 @@
                        <div class="col-sm-6 col-md-4" >
                             <div class="thumbnail">                            
                                 <div class="caption">
-                                    <h4 class="h-centered">Pelotas</h4>
+                                    <h4 class="h-centered">Pelotas - RS</h4>
                                     <p>Endereço: Rua Três de Maio, 719</p>
                                       <p>Phone: (53) 3227-27-59</p>
                                       <p>Phone: (51) 9108-13-63</p>
-                                    <p>
-                                        <button type="button" class="btn btn-primary" 
-                                                data-toggle="modal" data-target=".bs-map1-modal-lg">Ver Mapa
-                                        </button>
-                                    </p>
+                                    <div class="locationFooter">
+                                        <p>
+                                            <button type="button" class="btn btn-primary" 
+                                                    data-toggle="modal" data-target=".bs-PelMap-modal-lg">Ver Mapa
+                                            </button>
+                                        </p>                                    
+                                    </div>
+
                                 </div>
                             </div>
-                        </div>                
-                        
-                       <!-- Map 1 Dialog -->
-                        <div class="modal fade bs-map1-modal-lg" tabindex="-1"  role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="mapModal1">
-                          <div class="modal-dialog modal-lg">
+                        </div>   
+
+                    <!-- Mapa Pelotas -->
+                    <div class="modal fade bs-PelMap-modal-lg" id="PelMapModal">
+                        <div class="modal-dialog">
                             <div class="modal-content">
-                                      <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
-                                            <span class="sr-only">Fechar</span></button>
-                                            <h4 class="modal-title">Pelotas</h4>
-                                       </div>
-                                         ...content1...
-                                <div id="map1-canvas"></div>
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                                     <h4 class="modal-title">Pelotas - RS</h4>
+
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div id="mapPel-canvas" class=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                                </div>
                             </div>
-                          </div>
+                            <!-- /.modal-content -->
                         </div>
-                    
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->                                    
+                        
+
                        <div class="col-sm-6 col-md-4 " >
                             <div class="thumbnail">                            
                                 <div class="caption">
-                                    <h4 class="h-centered">Porto Alegre</h4>
-                                    <p>Endereço: Rua Andrade Neves, 155. cj 52</p>
+                                    <h4 class="h-centered">Porto Alegre - RS</h4>
+                                    <p>Endereço: Rua Gen. Andrade Neves, 155. cj 52</p>
                                       <p>Phone: (51) 3227-05-04</p>
                                       <p>Phone: (51) 9226-21-09</p>
                                     <p>
-                                    <p>
-                                        <button type="button" class="btn btn-primary" 
-                                                data-toggle="modal" data-target=".bs-map2-modal-lg">Ver Mapa
-                                        </button>
-                                    </p>
+                                    <div class="locationFooter">
+                                        <p>
+                                            <button type="button" class="btn btn-primary btnVerMapa" 
+                                                    data-toggle="modal" data-target=".bs-PoaMap-modal-lg">Ver Mapa
+                                            </button>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                        
-                       <!-- Map 2 Dialog -->
-                        <div class="modal fade bs-map2-modal-lg" tabindex="-1"  role="dialog" 
-                                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                      <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
-                                            <span class="sr-only">Fechar</span></button>
-                                            <h4 class="modal-title">Porto Alegre</h4>
-                                       </div>
-                                        <div id="map2-canvas"></div>
+                               
+                    <!-- Mapa Porto Alegre -->
+                    <div class="modal fade bs-PoaMap-modal-lg" id="POAMapModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                                     <h4 class="modal-title">Porto Alegre - RS</h4>
+
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div id="mapPoa-canvas" class="mapContainer"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
                                 </div>
                             </div>
+                            <!-- /.modal-content -->
                         </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+
+
                    </div> 
                </div><!--row -->
             </div><!-- end Home -->
@@ -319,12 +350,12 @@
                 </div>
             </div> <!-- end Contato -->
 
+        
         <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
         <script type="text/javascript" src="Scripts/angular.js"></script>
 		<script type="text/javascript" src="Styles/bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="Scripts/app.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js"></script>
-
         
         
     </body>

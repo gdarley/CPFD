@@ -148,20 +148,96 @@
 
     */
 })();       //?
-     function initialize() {
-        var mapCanvas = document.getElementById('map-canvas');
-        var mapCanvas2 = document.getElementById('map2-canvas');
-        var mapOptions1 = {
-          center: new google.maps.LatLng(44.5403, -78.5463),
-          zoom: 8,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        var mapOptions2 = {
-          center: new google.maps.LatLng(44.5403, -78.5463),
-          zoom: 8,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        var map = new google.maps.Map(mapCanvas, mapOptions)
-        var map2 = new google.maps.Map(mapCanvas2, mapOptions2)
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+var mapPoa, mapPel;        
+var mapPoaCenter=new google.maps.LatLng(-30.030644, -51.228375); //POA
+var mapPelCenter=new google.maps.LatLng(-31.775409, -52.339755); //Pel
+
+var markerPoa=new google.maps.Marker({
+    position:mapPoaCenter
+});
+var markerPel=new google.maps.Marker({
+    position:mapPelCenter,
+    title:"Rua Gen. Andrade Neves, 155. cj 52"
+});
+
+function initialize() {
+  var mapPoaProp = {
+      center:mapPoaCenter,
+      zoom: 15,
+      draggable: true,
+      scrollwheel: true,
+      mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+   var mapPelProp = {
+      center:mapPelCenter,
+      zoom: 15,
+      draggable: true,
+      scrollwheel: true,
+      mapTypeId:google.maps.MapTypeId.ROADMAP
+  }; 
+
+  mapPoa=new google.maps.Map(document.getElementById("mapPoa-canvas"),mapPoaProp);
+  mapPel=new google.maps.Map(document.getElementById("mapPel-canvas"),mapPelProp);
+  markerPoa.setMap(mapPoa);
+  markerPel.setMap(mapPel);
+    
+  google.maps.event.addListener(markerPoa, 'click', function() {
+      
+    infowindow.setContent(contentString);
+    infowindow.open(mapPoa, markerPoa);   
+    
+  }); 
+  
+  google.maps.event.addListener(markerPel, 'click', function() {
+      
+    infowindow.setContent(contentString);
+    infowindow.open(mapPel, markerPel);   
+    
+  }); 
+};
+google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, "resize", resizingMap());
+
+$('#POAMapModal').on('show.bs.modal', function() {
+   //Must wait until the render of the modal appear, thats why we use the resizeMap and NOT resizingMap!! ;-)
+   resizeMapPoa();
+})
+
+$('#PelMapModal').on('show.bs.modal', function() {
+   //Must wait until the render of the modal appear, thats why we use the resizeMap and NOT resizingMap!! ;-)
+   resizeMapPel();
+})
+
+function resizeMapPoa() {
+   if(typeof mapPoa =="undefined") return;
+   setTimeout( function(){resizingMapPoa();} , 400);
+}
+
+function resizingMapPoa() {
+   if(typeof mapPoa =="undefined") return;
+   var center = mapPoa.getCenter();
+   google.maps.event.trigger(mapPoa, "resize");
+   mapPoa.setCenter(center); 
+}
+
+function resizingMap()
+{
+    resizingMapPoa();
+    resizingMapPel();
+
+}
+
+function resizeMapPel() {
+   if(typeof mapPoa =="undefined") return;
+   setTimeout( function(){resizingMapPel();} , 400);
+}
+
+function resizingMapPel() {
+   if(typeof mapPel =="undefined") return;
+   var center = mapPel.getCenter();
+   google.maps.event.trigger(mapPel, "resize");
+   mapPel.setCenter(center); 
+}
