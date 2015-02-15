@@ -1,0 +1,107 @@
+            <div class="jumbotron" id="Home" ng-show="tab.isSet(1)">
+                
+                <div class="container">
+                    <div class="page-header home-top-content">
+                        <img src="Images/logo.svg" alt="..." class="img-rounded">
+                        <h1><small>Psicólogo</small><br/>Francisco Darley</h1>
+                          <h4>CRP: 07/03776</h4>
+                    </div>
+                
+                </div>
+                <div class="row" >
+                   <div class="col-md-offset-3">
+                       <div class="col-sm-6 col-md-4" >
+                            <div class="thumbnail">                            
+                                <div class="caption">
+                                    <h4 class="h-centered">Pelotas - RS</h4>
+                                    <p>Endereço: Rua Três de Maio, 719</p>
+                                      <p>Phone: (53) 3227-27-59</p>
+                                      <p>Phone: (51) 9108-13-63</p>
+                                    <div class="locationFooter">
+                                        <p>
+                                            <button type="button" class="btn btn-primary" 
+                                                    data-toggle="modal" data-target=".bs-PelMap-modal-lg">Ver Mapa
+                                            </button>
+                                        </p>                                    
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>   
+
+                    <!-- Mapa Pelotas -->
+                    <div class="modal fade bs-PelMap-modal-lg" id="PelMapModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                                     <h4 class="modal-title">Pelotas - RS</h4>
+
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div id="mapPel-canvas" class=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->                                    
+                        
+
+                       <div class="col-sm-6 col-md-4 " >
+                            <div class="thumbnail">                            
+                                <div class="caption">
+                                    <h4 class="h-centered">Porto Alegre - RS</h4>
+                                    <p>Endereço: Rua Gen. Andrade Neves, 155. cj 52</p>
+                                      <p>Phone: (51) 3227-05-04</p>
+                                      <p>Phone: (51) 9226-21-09</p>
+                                    <p>
+                                    <div class="locationFooter">
+                                        <p>
+                                            <button type="button" class="btn btn-primary btnVerMapa" 
+                                                    data-toggle="modal" data-target=".bs-PoaMap-modal-lg">Ver Mapa
+                                            </button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                               
+                    <!-- Mapa Porto Alegre -->
+                    <div class="modal fade bs-PoaMap-modal-lg" id="POAMapModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                                     <h4 class="modal-title">Porto Alegre - RS</h4>
+
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div id="mapPoa-canvas" class="mapContainer"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+
+
+                   </div> 
+               </div>

@@ -39,6 +39,7 @@
                     <li ng-class="{ active:tab.isSet(4) }"><a href ng-click="tab.setTab(4)">Convênios</a></li>
                     <li ng-class="{ active:tab.isSet(5) }"><a href ng-click="tab.setTab(5)">Atendimento</a></li>
                     <li ng-class="{ active:tab.isSet(6) }"><a href ng-click="tab.setTab(6)">Contato</a></li>
+
                     <!--<li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
                       <ul class="dropdown-menu" role="menu">
@@ -54,303 +55,29 @@
               </div><!-- /.container-fluid -->
             </nav>
             <!-- Home-->
-            <div class="jumbotron" id="Home" ng-show="tab.isSet(1)">
-                
-                <div class="container">
-                    <div class="page-header home-top-content">
-                        <img src="Images/logo.svg" alt="..." class="img-rounded">
-                        <h1><small>Psicólogo</small><br/>Francisco Darley</h1>
-                          <h4>CRP: 07/03776</h4>
-                    </div>
-                
-                </div>
-                <div class="row" >
-                   <div class="col-md-offset-3">
-                       <div class="col-sm-6 col-md-4" >
-                            <div class="thumbnail">                            
-                                <div class="caption">
-                                    <h4 class="h-centered">Pelotas - RS</h4>
-                                    <p>Endereço: Rua Três de Maio, 719</p>
-                                      <p>Phone: (53) 3227-27-59</p>
-                                      <p>Phone: (51) 9108-13-63</p>
-                                    <div class="locationFooter">
-                                        <p>
-                                            <button type="button" class="btn btn-primary" 
-                                                    data-toggle="modal" data-target=".bs-PelMap-modal-lg">Ver Mapa
-                                            </button>
-                                        </p>                                    
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>   
-
-                    <!-- Mapa Pelotas -->
-                    <div class="modal fade bs-PelMap-modal-lg" id="PelMapModal">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-                                     <h4 class="modal-title">Pelotas - RS</h4>
-
-                                </div>
-                                <div class="modal-body">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div id="mapPel-canvas" class=""></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
-                                </div>
-                            </div>
-                            <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
-                    </div>
-                    <!-- /.modal -->                                    
-                        
-
-                       <div class="col-sm-6 col-md-4 " >
-                            <div class="thumbnail">                            
-                                <div class="caption">
-                                    <h4 class="h-centered">Porto Alegre - RS</h4>
-                                    <p>Endereço: Rua Gen. Andrade Neves, 155. cj 52</p>
-                                      <p>Phone: (51) 3227-05-04</p>
-                                      <p>Phone: (51) 9226-21-09</p>
-                                    <p>
-                                    <div class="locationFooter">
-                                        <p>
-                                            <button type="button" class="btn btn-primary btnVerMapa" 
-                                                    data-toggle="modal" data-target=".bs-PoaMap-modal-lg">Ver Mapa
-                                            </button>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                       
-                               
-                    <!-- Mapa Porto Alegre -->
-                    <div class="modal fade bs-PoaMap-modal-lg" id="POAMapModal">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-                                     <h4 class="modal-title">Porto Alegre - RS</h4>
-
-                                </div>
-                                <div class="modal-body">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div id="mapPoa-canvas" class="mapContainer"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
-                                </div>
-                            </div>
-                            <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
-                    </div>
-                    <!-- /.modal -->
-
-
-                   </div> 
-               </div><!--row -->
-            </div><!-- end Home -->
+            <div ng-show="tab.isSet(1)" ng-include="'pages/home.html'"></div>            
+            <!-- end Home -->
 
             <!-- Formacao -->
-            <div class="jumbotron" id="Formacao" ng-show="tab.isSet(2)">
-                  <div class="container">
-                        <div class="page-header">
-                            <h4>Formação:</h4>
-                        </div>
-                        <ul style="list-style-type:disc">
-                            <li>Graduação em Psicologia.</li>
-                            <li>Pós-Graduação em Psicoterapia Analítica e Holística.</li>
-                            <li>Formação em Psicologia Transpessoal.</li>
-                            <li>Formação em Terapia Floral - Florais de Bach.</li>
-                            <li>Formação em Psicodrama.</li>
-                            <li>Formação em Psicomotricidade.</li>
-                            <li>Psicanálise da Criança.</li>
-                            <li>Massagem Neo-Reichiana.</li>
-                            <li>Massagem Orgonoterapêutica</li>
-                            <li>Rebalanceamento Energético.</li>
-                            <li>Teoria e Técnica de Psicoterapia Cognitivo-Comportamental</li>
-                        </ul> 
-                  </div>                     
-            </div> <!-- end Formacao -->
+            <div ng-show="tab.isSet(2)" ng-include="'pages/formacao.html'"></div>            
+            <!-- end Formacao -->
  
             <!-- Atuacao  -->
-            <div class="jumbotron" id="Atuacao" ng-show="tab.isSet(3)">
-                <div class="container">
-                        <div class="page-header">
-                            <h4>Linhas de Atuação:</h4>
-                        </div>
-                     
-                    <!--accordion-->
-                    <div class="panel-group" id="accordion">
-                      <div class="panel panel-default">                          
-                        <div class="panel-heading">
-                          <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" 
-                              href="#collapse1">
-                              Psicoterapia
-                            </a>
-                          </h4>
-                        </div>
-                        <div id="collapse1" class="panel-collapse collapse">
-                          <div class="panel-body">
-                            <p>
-                                  Podemos definir psicoterapia como o tratamento de perturbações psíquicas que utiliza métodos psicológicos para reestabelecer o equilíbrio emocional.
-                                  De origem grega, THERAPEUSEIN = curar, tratar; PSIQUE = mente. Portanto, PSICOTERAPIA é um processo de tratar a mente, processo este, em que o indivíduo procura conhecer-se e desenvolver-se pessoalmente. É uma abordagem científica que tem como objeto de estudo o comportamento humano.
-                                  O processo psicoterapêutico é conduzido por especialistas que ajudam o indivíduo a ampliar a consciencia que tem de si mesmo, através de suas características e sintomas que venha a apresentar.
-                                  Psicoterapia é um espaçõ que nos reservamos para compreender as próprias alegrias e as próprias dores, os próprios limites e descobrir as próprias potencialidades conscientizand-se de nossas responsabilidades sobre tudo isso.
-                                  Trata-se de uma "brecha" que criamos na nossa vida corrida e atribulada, para cuidade de nossas emoções, para crescer e transformar a própria vida. O terapeuta tem como compromisso iluminar esta busca, facilitando a visão dos caminhos possíveis.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" 
-                              href="#collapse2">
-                              Psicoterapia Analógica Holística
-                            </a>
-                          </h4>
-                        </div>
-                        <div id="collapse2" class="panel-collapse collapse">
-                          <div class="panel-body">
-                            <p>
-                                  Baseado em Homeopatia, os psicólogos com a psicoterapia de base analógica estudam os mecanismos homeopáticos à luz da simbologia do inconsciente.
-                                  Busca-se por meio de estudo analógico relacionar o conhecimento homeopático com outras teorias conhecidas.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" 
-                              href="#collapse3">
-                              Psicodrama
-                            </a>
-                          </h4>
-                        </div>
-                        <div id="collapse3" class="panel-collapse collapse">
-                          <div class="panel-body">
-                                <p>      O Psicodrama é uma teoria baseada no entendimento de que saúde e doença se dá nas relações que propomos. Surgiu na década de 20, numa época em que a sociedade valorizava o inconsciente, vivendo a divulgação das idéias de Freud.Jacob Levy Moreno, criador do PSICODRAMA, acreditava no amor e no compartilhar mútuo como base para a vida e para as relações em grupo. Moreno nasceu na Romênia em 1886, era judeu, fez medicina em Viena e especializou-se em psiquiatria.
-                                      Todo o corpo teórico que desenvolveu baseava-se no pressuposto que nascemos totalmente criativos e espontâneos e à medida que vamos nos desenvolvendo, a cultura, e com ela as regras estabelecidas socialmente, vão tolhendo esse nosso tesouro natural e nos moldando.Toda sua Teoria do desenvolvimento é voltada para a liberação de nossa capacidade espontânea e criativa imprescindível para nossa saúde emocional.
-                                      Somos o resultado de nossa história, contudo, recebemos influencia e influenciamos todo o tempo. Cada pessoa saudável, feliz, em plena capacidade de exercer sua autonomia, fazer escolhas, ser genuína, transforma-se num agente espontâneo capaz de difundir essa chama da saúde interna nas muitas pessoas com as quais se relaciona.
-                                      Moreno acreditava que devíamos fazer o bem, amar e compartilhar nossas experiências. Acreditava na centelha divina que existe em cada um de nós, queria trazer alegria, leveza e criatividade aos métodos psicoterapêuticos e certamente conseguiu. Sua idéias difundiram-se no mundo todo e tornaram-se a base das terapias de grupo.
-                                </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" 
-                              href="#collapse4">
-                              Psicoterapia de Casal e Família
-                            </a>
-                          </h4>
-                        </div>
-                        <div id="collapse4" class="panel-collapse collapse">
-                          <div class="panel-body">
-                            <p>      O relacionamento entre casais e entre membros de uma família podem criar padrões rígidos, os quais podem trazer efeitos indesejáveis ( que se manifestam de várias maneiras). A psicoterapia tem como objetivo permitir que os membros do casal ou família ampliem suas consciências,  proporcionando, naturalmente uma descristalização, o que facilita a superação dos distúrbios ligados a estrutura familiar.</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" 
-                              href="#collapse5">
-                              Psicoterapia Transpessoal
-                            </a>
-                          </h4>
-                        </div>
-                        <div id="collapse5" class="panel-collapse collapse">
-                          <div class="panel-body">
-                                <p>
-                                          É uma ciência holística que estuda o ser humano em sua totalidade, abrangendo outros enfoques científicos como Medicina, Antropologia, Sociologia, Física, Química, Metafísica.
-                                      Tem como objeto de estudo principalmente os estados de consciência que transcendem a pessoa e o conceito de ego. É um instrumento de pesquisa da natureza essencial do ser.
-                                      A partir das idéias expostas na psicologia humanista, surge nos anos 60, em resposta ao fato de que os principais modelos precedentes, fossem limitados em seus reconhecimento dos níveis superiores de desenvolvimento psicológico. Maslow declarava que sem o transcendente ficaríamos doentes, violentos e niilistas, vazios de esperança e apáticos. Vitor Frankl, Stanislav Grof, James Fadiman, Anthony Sutich uniram-se a Maslow e oficializaram, em 1968, a Psicologia Transpessoal. Suas idéias tem como grande precursor, Carl Jung. Acreditava-se que vivenciar o aspecto transcendente era importante e crucial em nossas vidas. Pensar de forma holística, transcendendo dualidades como certo ou errado, bem ou mal, passado, presente e futuro é fundamental.A Psicologia Transpessoal, considerada, então a 4ª Força da Psicologia, (1ª Força= Behaviorismo; 2ª Força=Psicanálise; 3ª Força= Psicologia Humanista), ainda mais forte, transpessoal, transumana, centrada no cosmos e não apenas em necessidades e nos interesses humanos, que vão além da condição humana. Surgiu então, enfocando o estudo da consciência e o reconhecimento dos significados das dimensões espirituais da Psique.
-                                      A Psicologia Transpessoal leva em consideração todo Ser Humano como um ser único, que jamais pode ser comparado com outro Ser Humano. Reconhece o fato de que estamos em constante crescimento. Essa perspectiva auxilia-nos a restituir sentido e valor à vida, e ajuda-nos a determinar o que somos e o que desejamos. A Psicoterapia Transpessoal colabora para o entendimento da ‘crise do sentido da vida’ e da ‘ crise da dualidade’, quando nos percebemos como entidades completas e únicas, divididos entre diversos desejos e vontades. Com um ponto de vista integrado onde o Universo todo ( energia e matéria ) é uma entidade dinâmica em constante mudança  num todo indivisível.
-                                </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" 
-                              href="#collapse6">
-                             Psicoterapia de Adolescentes
-                            </a>
-                          </h4>
-                        </div>
-                        <div id="collapse6" class="panel-collapse collapse">
-                          <div class="panel-body">
-                                <p>      As descobertas acontecem tanto em relação às situações de vida que se apresentam como também em relação às transformações do próprio corpo, que vai passando por diversas modificações em vários níveis: morfológico, hormonal, mental, emocional. Na natureza todas as estruturas em seu início de formação apresentam uma maior fragilidade, o que também é verdadeiro em relação ao ser humano. Dessa forma não há porque estranhar a freqüente necessidade de um facilitador (processo psicoterapêutico) para assegurar o bom andamento do desenvolvimento humano.
-                                </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-                </div>
-            </div> <!-- end Atuaco -->
+            <div ng-show="tab.isSet(3)" ng-include="'pages/atuacao.html'"></div>                  
+            <!-- end Atuaco -->
         
             <!-- Convenios  -->
-            <div class="jumbotron" id="Convenios" ng-show="tab.isSet(4)">
-                <div class="container">
-
-                            <div class="page-header">
-                                <h4>Convênios:</h4>
-                            </div>
-                            <dl>
-                              <dt>Pelotas:</dt>
-	                            <dd>- Banrisul (CABERGS).</dd>
-	                            <dd>- IPÊ: Desconto sobre o valor da consulta.</dd>
-	                            <dd>- Unimed: Desconto sobre o valor da consulta.</dd>
-                                </br>
-                              <dt>Porto Alegre</dt>
-	                            <dd>- Banrisul (CABERGS).</dd>
-                            </dl> 
-                        </div>
-                    
-                </div>
-            </div> <!-- end Convenios -->
+            <div ng-show="tab.isSet(4)" ng-include="'pages/convenios.html'"></div>                  
+             <!-- end Convenios -->
 
             <!-- Atemdimento  -->
-            <div class="jumbotron" id="Atendimento" ng-show="tab.isSet(5)">
-                <div class="container">
-                            <div class="page-header">
-                                <h4>Atendimento:</h4>
-                            </div>
-                            <p>      O atendimento é realizado com hora marcada previamente nos turnos da manhã, tarde e noite. Para tal, entre em contato por e-mail, telefone ou pessoalmente em nossa clínica em horário comercial.
-                            </p>
-                </div>
-            </div> <!-- end Atendimento -->
+            <div ng-show="tab.isSet(5)" ng-include="'pages/atendimento.html'"></div>    
+             <!-- end Atendimento -->
 
             <!-- Contato  -->
-            <div class="jumbotron" id="Contato" ng-show="tab.isSet(6)">
-                <div class="container">
-                            <div class="page-header">
-                                <h4>Contato:</h4>
-                            </div>
-                            ... Contato ...                    
-                </div>
-            </div> <!-- end Contato -->
-
-        
+            <div ng-show="tab.isSet(6)" ng-include="'pages/contato.html'"></div>    
+             <!-- end Contato -->
+       
         <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js"></script>
         <script type="text/javascript" src="Scripts/angular.js"></script>

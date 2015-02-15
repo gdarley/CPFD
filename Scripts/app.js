@@ -15,139 +15,9 @@
         };
 
     });
-    /*
-    app.directive('home',function()
-    {
-    return
-    {
-    restrict: 'E',
-    templateUrl: 'home.html',
-    controller: function()
-    {
-    this.tab=1;
-    this.isSet = function(checkTab)
-    {
-    return this.tab === checkTab;
-    };
-    this.setTab = function(setTab)
-    {
-    this.tab = setTab;
-    };
-    },
-    controllerAs:'tab'
-    };
-    });
-
-    
-    app.directive('formacao',function()
-    {
-    return
-    {
-    restrict: 'E',
-    templateUrl: 'formacao.html',
-    controller: function()
-    {
-    this.tab=1;
-    this.isSet = function(checkTab)
-    {
-    return this.tab === checkTab;
-    };
-    this.setTab = function(setTab)
-    {
-    this.tab = setTab;
-    };
-    },
-    controllerAs:'tab'
-    };
-    });
-    app.directive('atuacao',function()
-    {
-    return
-    {
-    restrict: 'E',
-    templateUrl: 'atuacao.html',
-    controller: function()
-    {
-    this.tab=1;
-    this.isSet = function(checkTab)
-    {
-    return this.tab === checkTab;
-    };
-    this.setTab = function(setTab)
-    {
-    this.tab = setTab;
-    };
-    },
-    controllerAs:'tab'
-    };
-    });
-    app.directive('convenios',function()
-    {
-    return
-    {
-    restrict: 'E',
-    templateUrl: 'convenios.html',
-    controller: function()
-    {
-    this.tab=1;
-    this.isSet = function(checkTab)
-    {
-    return this.tab === checkTab;
-    };
-    this.setTab = function(setTab)
-    {
-    this.tab = setTab;
-    };
-    },
-    controllerAs:'tab'
-    };
-    });
-    app.directive('atendimento',function()
-    {
-    return
-    {
-    restrict: 'E',
-    templateUrl: 'atendimento.html',
-    controller: function()
-    {
-    this.tab=1;
-    this.isSet = function(checkTab)
-    {
-    return this.tab === checkTab;
-    };
-    this.setTab = function(setTab)
-    {
-    this.tab = setTab;
-    };
-    },
-    controllerAs:'tab'
-    };
-    });
-    app.directive('contato',function()
-    {
-    return
-    {
-    restrict: 'E',
-    templateUrl: 'contato.html',
-    controller: function()
-    {
-    this.tab=1;
-    this.isSet = function(checkTab)
-    {
-    return this.tab === checkTab;
-    };
-    this.setTab = function(setTab)
-    {
-    this.tab = setTab;
-    };
-    },
-    controllerAs:'tab'
-    };
-    });
 
 
-    */
-})();       //?
+})(); 
 
 
 
@@ -183,8 +53,18 @@ function initialize() {
   mapPel=new google.maps.Map(document.getElementById("mapPel-canvas"),mapPelProp);
   markerPoa.setMap(mapPoa);
   markerPel.setMap(mapPel);
-    
+
+     
   google.maps.event.addListener(markerPoa, 'click', function() {
+    var contentString =   '<div id="content">' +
+                            'Rua Gen. Andrade Neves, 155. cj 52. Porto Alegre - RS' + 
+                           '</div>';
+
+
+    var infowindow = new google.maps.InfoWindow({
+            content: contentString,
+            maxWidth: 400
+        });
       
     infowindow.setContent(contentString);
     infowindow.open(mapPoa, markerPoa);   
@@ -192,7 +72,15 @@ function initialize() {
   }); 
   
   google.maps.event.addListener(markerPel, 'click', function() {
-      
+    var contentString =   '<div id="content">' +
+                            'Rua Três de Maio, 719. Pelotas - RS' + 
+                           '</div>';
+ 
+    var infowindow = new google.maps.InfoWindow({
+            content: contentString,
+            maxWidth: 400
+        });
+     
     infowindow.setContent(contentString);
     infowindow.open(mapPel, markerPel);   
     
@@ -237,7 +125,7 @@ function resizeMapPel() {
 
 function resizingMapPel() {
    if(typeof mapPel =="undefined") return;
-   var center = mapPel.getCenter();
+   var center = mapPel.getCenter();   
    google.maps.event.trigger(mapPel, "resize");
    mapPel.setCenter(center); 
 }
