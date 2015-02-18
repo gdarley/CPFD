@@ -89,9 +89,12 @@ function initialize() {
 google.maps.event.addDomListener(window, 'load', initialize);
 google.maps.event.addDomListener(window, "resize", resizingMap());
 
-$('#POAMapModal').on('show.bs.modal', function() {
-   //Must wait until the render of the modal appear, thats why we use the resizeMap and NOT resizingMap!! ;-)
-   resizeMapPoa();
+$(window).on('shown.bs.modal', function (){resizingMap();});
+
+$('#POAMapModal').on('shown.bs.modal', function ()
+{
+    //Must wait until the render of the modal appear, thats why we use the resizeMap and NOT resizingMap!! ;-)  
+    resizeMapPoa();
 })
 
 $('#PelMapModal').on('show.bs.modal', function() {
@@ -105,10 +108,10 @@ function resizeMapPoa() {
 }
 
 function resizingMapPoa() {
-   if(typeof mapPoa =="undefined") return;
-   var center = mapPoa.getCenter();
+ if(typeof mapPoa =="undefined") return;
+   var centerPoa = mapPoa.getCenter();
    google.maps.event.trigger(mapPoa, "resize");
-   mapPoa.setCenter(center); 
+   mapPoa.setCenter(centerPoa);   
 }
 
 function resizingMap()
@@ -125,7 +128,7 @@ function resizeMapPel() {
 
 function resizingMapPel() {
    if(typeof mapPel =="undefined") return;
-   var center = mapPel.getCenter();   
+   var centerPel = mapPel.getCenter();   
    google.maps.event.trigger(mapPel, "resize");
-   mapPel.setCenter(center); 
+   mapPel.setCenter(centerPel); 
 }
