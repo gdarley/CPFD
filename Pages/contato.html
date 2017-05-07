@@ -3,6 +3,29 @@
                 <div class="page-header">
                     <h4>Contato:</h4>
                 </div>
-                ... Contato ...                    
+                <div>
+					<form method="post" action="./Pages/contato.php">	
+						<div class="form-group">
+							<label for="Name">Nome:</label>
+							<input type="text" class="form-control" id="Name" name="Name" placeholder="Digite o seu nome">					    
+						</div>
+						<div class="form-group phone" >
+								<label for="Phone">Telefone:</label>
+								<div id="Phone">
+									<input type="text" class="form-control phoneddd"  id="DDD" name="DDD" placeholder="DDD" maxlength="2" size="2">					    
+									<input type="text" class="form-control phonenumber"  id="Phone" name="Phone" placeholder="Telefone"  maxlength="9" size="9">	
+								</div>
+						</div>	
+						<div class="form-group">
+							<label for="InputEmail">Email:</label>
+							<input type="email" class="form-control" id="InputEmail" name="InputEmail"  aria-describedby="emailHelp" placeholder="Digite o seu e-mail" required>					    
+						</div>
+						<div class="form-group">
+						    <label for="MessageArea">Mensagem</label>
+							<textarea class="form-control" id="MessageArea"  name="MessageArea" rows="5" required></textarea>
+						</div>
+							<button type="submit" name="btnSubmit" class="btn btn-primary">Enviar</button>
+					</form> 
+				</div>                 
     </div>
 </div>

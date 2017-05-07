@@ -15,7 +15,7 @@
         <link rel="stylesheet" type="text/css" href="Styles/styles.css">
     </head>
     <body ng-controller="TabController as tab">      
-        <div id="mapTest" height="400px" width="500px"> TESTE DE MAPA</DIV>
+
         <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
               <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -75,18 +75,15 @@
              <!-- end Atendimento -->
 
             <!-- Contato  -->
-            <div ng-show="tab.isSet(6)" ng-include src="'../_novoSite/Pages/contato.html'"></div>    
+            <div ng-show="tab.isSet(6)" ng-include src="'../_novoSite/Pages/contato2.php'"></div>    
              <!-- end Contato -->
-       
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB61HI1_OLZgGvdhRMAxBxf94bC-GpbmL0&callback=initMap"></script>
+            
         <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
-<!--        <script src="https://maps.googleapis.com/maps/api/js"></script>-->
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
         <script type="text/javascript" src="Scripts/angular.js"></script>
 		<script type="text/javascript" src="Styles/bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
         
-        <script type="text/javascript" src="Scripts/app.js"></script>
-
-</script>
+        
         
         
     </body>

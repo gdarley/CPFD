@@ -22,7 +22,16 @@
 
 
 var mapPoa, mapPel;        
-var mapPoaCenter=new google.maps.LatLng(-30.030644, -51.228375); //POA
+
+var uluruPoa = {lat: -30.030644, lng: -51.228375};
+//var mapPoaCenter=new google.maps.LatLng(-30.030644, -51.228375); //POA
+var mapPoaCenter=new google.maps.Map(document.getElementById("mapPoa-canvas"),{
+    zoom: 15,
+    center: uluruPoa    
+});
+
+//LatLng(-30.030644, -51.228375); //POA
+
 var mapPelCenter=new google.maps.LatLng(-31.775409, -52.339755); //Pel
 
 var markerPoa=new google.maps.Marker({
@@ -49,7 +58,11 @@ function initialize() {
       mapTypeId:google.maps.MapTypeId.ROADMAP
   }; 
 
-  mapPoa=new google.maps.Map(document.getElementById("mapPoa-canvas"),mapPoaProp);
+  //mapPoa=new google.maps.Map(document.getElementById("mapPoa-canvas"),mapPoaProp);
+  mapPoa =new google.maps.Map(document.getElementById("mapPoa-canvas"),{
+      zoom: 15,
+      center: uluruPoa    
+  });
   mapPel=new google.maps.Map(document.getElementById("mapPel-canvas"),mapPelProp);
   markerPoa.setMap(mapPoa);
   markerPel.setMap(mapPel);
@@ -94,12 +107,12 @@ $(window).on('shown.bs.modal', function (){resizingMap();});
 $('#POAMapModal').on('shown.bs.modal', function ()
 {
     //Must wait until the render of the modal appear, thats why we use the resizeMap and NOT resizingMap!! ;-)  
-    resizeMapPoa();
+   // resizeMapPoa();
 })
 
 $('#PelMapModal').on('show.bs.modal', function() {
    //Must wait until the render of the modal appear, thats why we use the resizeMap and NOT resizingMap!! ;-)
-   resizeMapPel();
+   //resizeMapPel();
 })
 
 function resizeMapPoa() {
@@ -132,3 +145,20 @@ function resizingMapPel() {
    google.maps.event.trigger(mapPel, "resize");
    mapPel.setCenter(centerPel); 
 }
+
+
+function  initMap(){
+  initMapPoa();
+}
+
+     function initMapPoa() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('mapPoa-canvas'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
