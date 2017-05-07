@@ -21,26 +21,43 @@
 
 
 
-var mapPoa, mapPel;        
+  var mapPoa, mapPel;        
+  var uluruPoa,uluruPel;
+  var mapPoaCenter, mapPelCenter;
+  var markerPoa, markerPel;
 
-var uluruPoa = {lat: -30.030644, lng: -51.228375};
-//var mapPoaCenter=new google.maps.LatLng(-30.030644, -51.228375); //POA
-var mapPoaCenter=new google.maps.Map(document.getElementById("mapPoa-canvas"),{
-    zoom: 15,
-    center: uluruPoa    
-});
+function startAll(){     
 
-//LatLng(-30.030644, -51.228375); //POA
+    ////originalmaps uluruPoa = {lat: -25.363, lng: 131.044};
+    uluruPoa = {lat: parseFloat(-30.030), lng: parseFloat(-51.228)};
+    uluruPel = {lat: parseFloat(-31.775), lng: parseFloat(-52.339)};
+  //var mapPoaCenter=new google.maps.LatLng(-30.030644, -51.228375); //POA
+    mapPoaCenter= new google.maps.Map(document.getElementById("mapPoa-canvas"),{
+        zoom: 15,
+        center: uluruPoa    
+    });
 
-var mapPelCenter=new google.maps.LatLng(-31.775409, -52.339755); //Pel
 
-var markerPoa=new google.maps.Marker({
-    position:mapPoaCenter
-});
-var markerPel=new google.maps.Marker({
-    position:mapPelCenter,
-    title:"Rua Gen. Andrade Neves, 155. cj 52"
-});
+  mapPelCenter=new google.maps.Map(document.getElementById("mapPel-canvas"),{
+      zoom: 15,
+      center: uluruPel
+  });
+
+  markerPoa=new google.maps.Marker({
+        position:uluruPoa,
+        title: 'Rua Gen. Andrade Neves, 155. cj 52',
+        map: mapPoaCenter
+    });
+
+    markerPel=new google.maps.Marker({
+        position:uluruPel,
+        title:"Rua Gen. Andrade Neves, 155. cj 52",
+        map: mapPelCenter
+    });
+
+
+}
+
 
 function initialize() {
   var mapPoaProp = {
@@ -63,7 +80,10 @@ function initialize() {
       zoom: 15,
       center: uluruPoa    
   });
-  mapPel=new google.maps.Map(document.getElementById("mapPel-canvas"),mapPelProp);
+  mapPel=new google.maps.Map(document.getElementById("mapPel-canvas"),{
+    zoom: 15,
+    center: uluruPel
+  });
   markerPoa.setMap(mapPoa);
   markerPel.setMap(mapPel);
 
@@ -99,18 +119,47 @@ function initialize() {
     
   }); 
 };
-google.maps.event.addDomListener(window, 'load', initialize);
-google.maps.event.addDomListener(window, "resize", resizingMap());
+  function addDOMListeners(){
+  //  google.maps.event.addDomListener(window, 'load', initialize);
+  //  google.maps.event.addDomListener(window, "resize", resizingMap());
 
-$(window).on('shown.bs.modal', function (){resizingMap();});
+  }
+
+$(window).on('shown.bs.modal', function (){resizingMap();startAll();});
 
 $('#POAMapModal').on('shown.bs.modal', function ()
 {
+  console.log('shown');
+  //startAll();
+    //Must wait until the render of the modal appear, thats why we use the resizeMap and NOT resizingMap!! ;-)  
+   // resizeMapPoa();
+})
+
+$('#POAMapModal').on('show.bs.modal', function ()
+{
+  console.log('show');
+  //startAll();
+    //Must wait until the render of the modal appear, thats why we use the resizeMap and NOT resizingMap!! ;-)  
+   // resizeMapPoa();
+})
+
+$('#POAMapModal').on('shown', function ()
+{
+  //startAll();
+  console.log('shown');
+    //Must wait until the render of the modal appear, thats why we use the resizeMap and NOT resizingMap!! ;-)  
+   // resizeMapPoa();
+})
+$('#POAMapModal').on('show', function ()
+{
+  //startAll();
+  console.log('show');
     //Must wait until the render of the modal appear, thats why we use the resizeMap and NOT resizingMap!! ;-)  
    // resizeMapPoa();
 })
 
 $('#PelMapModal').on('show.bs.modal', function() {
+  //startAll();
    //Must wait until the render of the modal appear, thats why we use the resizeMap and NOT resizingMap!! ;-)
    //resizeMapPel();
 })
@@ -119,12 +168,23 @@ function resizeMapPoa() {
    if(typeof mapPoa =="undefined") return;
    setTimeout( function(){resizingMapPoa();} , 400);
 }
+function resizeMapPel() {
+   if(typeof mapPoa =="undefined") return;
+   setTimeout( function(){resizingMapPel();} , 400);
+}
+
 
 function resizingMapPoa() {
  if(typeof mapPoa =="undefined") return;
    var centerPoa = mapPoa.getCenter();
    google.maps.event.trigger(mapPoa, "resize");
    mapPoa.setCenter(centerPoa);   
+}
+function resizingMapPel() {
+   if(typeof mapPel =="undefined") return;
+   var centerPel = mapPel.getCenter();   
+   google.maps.event.trigger(mapPel, "resize");
+   mapPel.setCenter(centerPel); 
 }
 
 function resizingMap()
@@ -134,31 +194,30 @@ function resizingMap()
 
 }
 
-function resizeMapPel() {
-   if(typeof mapPoa =="undefined") return;
-   setTimeout( function(){resizingMapPel();} , 400);
-}
 
-function resizingMapPel() {
-   if(typeof mapPel =="undefined") return;
-   var centerPel = mapPel.getCenter();   
-   google.maps.event.trigger(mapPel, "resize");
-   mapPel.setCenter(centerPel); 
-}
+
 
 
 function  initMap(){
   initMapPoa();
 }
 
-     function initMapPoa() {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('mapPoa-canvas'), {
-          zoom: 4,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
+  function initMapPoa() {
+      var uluru = {lat: parseFloat(-25.363), lng: parseFloat(131.044)};
+      var map = new google.maps.Map(document.getElementById('mapPoa-canvas'), {
+        zoom: 4,
+        center: uluru
+    });
+    var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+    });
+  }
+
+$( document ).ready(function() {
+    
+
+    startAll();
+    console.log('ready');
+
+});

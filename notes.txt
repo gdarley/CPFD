@@ -1,1 +1,7 @@
 GMAPS APIKEY AIzaSyB61HI1_OLZgGvdhRMAxBxf94bC-GpbmL0 
+
+ftp pwd? 655 ou 65
+
+corrigir entereços de mapa
+verificar imagem no edge
+text inside whiteboxes
