@@ -216,12 +216,6 @@ function  initMap(){
 
 $( document ).ready(function() {
     
-$("#contactForm").submit(function(event){
-    // cancels the form submission
-    event.preventDefault();
-    submitForm();
-});
-
     startAll();
 
     console.log('ready');
@@ -236,9 +230,13 @@ $("#contactForm").submit(function(event){
 });
 
 */
+function preSubmit(){
+        submitForm();
+
+}
 function submitForm(){
     // Initiate Variables With Form Content
-    console.log('submitting');
+    
     var _name = $("#Name").val();
     var _email = $("#InputEmail").val();
     var _ddd = $("#DDD").val();
@@ -247,14 +245,16 @@ function submitForm(){
  
     $.ajax({
         type: "POST",
-        url: "../Pages/contato.php",
+        url: "Pages/contato.php",
         data: "Name=" + _name 
             + "&InputEmail=" + _email 
             + "&DDD=" + _ddd 
             + "&Phone=" + _phone 
             +  "&MessageArea=" + _message,
         success : function(text){
+
             if (text == "success"){
+                console.log("success"); 
                 formSuccess();
             }
         },

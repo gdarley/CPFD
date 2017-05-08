@@ -20,7 +20,8 @@ if (isset($_POST['btnSubmit'])) {
   
   //Configurações do email, ajustar conforme necessidade
   //==================================================== 
-  $email_destinatario = "contato@psicologofranciscodarley.net"; // pode ser qualquer email que receberá as mensagens
+  //$email_destinatario = "contato@psicologofranciscodarley.net"; // pode ser qualquer email que receberá as mensagens
+  $email_destinatario = "gdarley@gmail.com"; // pode ser qualquer email que receberá as mensagens
   $email_reply = "$email"; 
   $email_assunto = "Contato Psicologo Francisco Darley"; // Este será o assunto da mensagem
   //====================================================
@@ -41,10 +42,10 @@ if (isset($_POST['btnSubmit'])) {
   //Enviando o email 
   //==================================================== 
   if (mail ($email_destinatario, $email_assunto, nl2br($email_conteudo), $email_headers)){ 
-          echo "</b>E-Mail enviado com sucesso!</b>"; 
+          echo "success"; 
           } 
       else{ 
-          echo "</b>Falha no envio do E-Mail!</b>"; } 
+          echo "fail"; } 
   //====================================================
 } 
 ?>
