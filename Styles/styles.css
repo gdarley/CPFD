@@ -34,8 +34,13 @@ p{
     color: #333;
     background-color: #f0f7e2;
     border-color: #006800;
+    border-bottom: 0px;
 }
 
+
+.panel-atuacao{
+	padding: 5px;
+}
 /*navbar styles */
 .navbar-default {
 	background-color: #328F32;

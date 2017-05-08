@@ -216,8 +216,53 @@ function  initMap(){
 
 $( document ).ready(function() {
     
+$("#contactForm").submit(function(event){
+    // cancels the form submission
+    event.preventDefault();
+    submitForm();
+});
 
     startAll();
+
     console.log('ready');
 
+
 });
+/*
+$("#contactForm").submit(function(event){
+    // cancels the form submission
+    event.preventDefault();
+    submitForm();
+});
+
+*/
+function submitForm(){
+    // Initiate Variables With Form Content
+    console.log('submitting');
+    var _name = $("#Name").val();
+    var _email = $("#InputEmail").val();
+    var _ddd = $("#DDD").val();
+    var _phone = $("#Phone").val();
+    var _message = $("#MessageArea").val();
+ 
+    $.ajax({
+        type: "POST",
+        url: "../Pages/contato.php",
+        data: "Name=" + _name 
+            + "&InputEmail=" + _email 
+            + "&DDD=" + _ddd 
+            + "&Phone=" + _phone 
+            +  "&MessageArea=" + _message,
+        success : function(text){
+            if (text == "success"){
+                formSuccess();
+            }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) { 
+          console.log("Status: " + textStatus); console.log("Error: " + errorThrown); 
+        }
+    });
+}
+function formSuccess(){
+    $( "#msgSubmit" ).removeClass( "hidden" );
+}

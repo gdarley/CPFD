@@ -1,10 +1,16 @@
 <div class="jumbotron" id="Contato" ng-show="tab.isSet(6)">
     <div class="container">
-                <div class="page-header">
-                    <h4>Contato:</h4>
-                </div>
-                <div>
-					<form method="post" action="./Pages/contato.php">	
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Contato</h3>
+  </div>
+  <div class="panel-body">
+                    <div>
+					<!--<form method="post" action="./Pages/contato.php">	-->
+					<form role="form" id="contactForm">	
+
 						<div class="form-group">
 							<label for="Name">Nome:</label>
 							<input type="text" class="form-control" id="Name" name="Name" placeholder="Digite o seu nome">					    
@@ -25,7 +31,13 @@
 							<textarea class="form-control" id="MessageArea"  name="MessageArea" rows="5" required></textarea>
 						</div>
 							<button type="submit" name="btnSubmit" class="btn btn-primary">Enviar</button>
+							<span id="msgSubmit" class="hidden">Mensagem enviada!</span>	
+					
 					</form> 
-				</div>                 
+				</div>   
+  </div>
+</div>    	
+
+              
     </div>
 </div>
